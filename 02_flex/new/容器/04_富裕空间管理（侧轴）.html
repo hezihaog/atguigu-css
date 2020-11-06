@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<title>04_富裕空间管理（侧轴）</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				width: 80%;
+				height: 300px;
+				border: 1px solid black;
+				margin: 50% auto;
+				/* 新版本的flex */
+				display: flex;
+				/* 
+					flex-direction，控制主轴和侧轴，分别是哪一根
+						row：水平方向的
+						column：垂直方向的
+						row-reverse：水平方向的正向
+						column-reverse：垂直方向的反向
+				 */
+				flex-direction: row-reverse;
+				
+				/* 
+					justify-content，富裕空间管理
+						可选值
+							flex-start 富裕空间在主轴的正方向
+							flex-end 富裕空间在主轴的反方向
+							center 富裕空间在主轴的2边
+							space-between 富裕空间在项目之间
+							space-around（旧版box，没有这种） 富裕空间在项目2边
+				 */
+				justify-content: space-around;
+				
+				/* 
+					align-items
+						可选值：
+							 flex-start 在侧轴的的正方向
+							 flex-end 在侧轴的反方向
+							 center 在侧轴的2边
+							 baseline（旧版box没有）按基线对其
+							 stretch（旧版box没有）等高布局（需要高度不设置，就会自动拉伸，有高度是无效的）
+				 */
+				align-items: center;
+			}
+			
+			#wrap > .item {
+				width: 50px;
+				height: 50px;
+				background-color: pink;
+				text-align: center;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="item">1</div>
+			<!-- 故意让文字的行高大于元素高度，让文字下挪，当使用baseline时，会让其他元素和2号元素的baseline对其 -->
+			<div class="item" style="line-height: 100px;">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+		</div>
+	</body>
+</html>
